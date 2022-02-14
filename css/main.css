@@ -162,12 +162,6 @@ body {
   animation: pop 1s both;
 }
 
-@media (min-width: 768px) {
-  .rules {
-    width: 400px;
-    height: 400px;
-  }
-}
 
 @keyframes pop {
   50% {
@@ -264,4 +258,23 @@ body {
   font-size: 30px;
   font-weight: bold;
   border: none;
+}
+@media (min-width: 768px) {
+  .rules {
+    width: 400px;
+    height: 400px;
+  }
+
+  .game,
+  .win{
+    margin-top: 100px;
+    transform: scale(1.2)
+  }
+  .ru{
+    margin-top: 100px;
+    left: 80%;
+  }
+  .title{
+    width: 400px;
+  }
 }
