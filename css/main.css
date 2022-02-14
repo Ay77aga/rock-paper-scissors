@@ -1,0 +1,267 @@
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(hsl(214, 47%, 23%) 30%,
+      hsl(237, 49%, 15%) 100%) no-repeat;
+  height: 100vh;
+  position: relative;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid hsl(217, 16%, 45%);
+  border-radius: 8px;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.title img {
+  width: 100px;
+}
+
+.title h4 {
+  background: #fff;
+  border-radius: 8px;
+  color: hsl(229, 64%, 46%);
+  font-weight: 900;
+  position: relative;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 13px;
+}
+
+.title h4 span {
+  display: block;
+  font-size: 35px;
+  color: hsl(229, 25%, 31%);
+  font-weight: bold;
+}
+
+.game {
+  width: 300px;
+  margin: auto;
+  background: url("../imgs/bg-triangle.svg") 50% 50% no-repeat;
+  background-size: 75%;
+  height: 200px;
+  margin-top: 100px;
+  position: relative;
+}
+
+.game .img {
+  border-radius: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  background: #fff;
+  cursor: pointer;
+  height: 90px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: oo .5s both;
+
+}
+
+@keyframes oo {
+  0% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.game .paper {
+  animation-delay: .3s
+}
+
+.img.paper {
+  border: 10px solid hsl(230, 89%, 65%);
+}
+
+.game .scissors {
+  right: 0;
+  animation-delay: .6s
+}
+
+.img.scissors {
+  border: 10px solid hsl(40, 84%, 53%);
+
+}
+
+.game .rock {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 1s
+}
+
+.img.rock {
+  border: 10px solid hsl(349, 70%, 56%);
+
+}
+
+.ru {
+  border: 2px solid hsl(217, 16%, 45%);
+  border-radius: 7px;
+  padding: 10px 25px;
+  background: transparent;
+  color: #fff;
+  position: relative;
+  margin-top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rules {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.rules.active {
+  animation: pop 1s both;
+}
+
+@media (min-width: 768px) {
+  .rules {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@keyframes pop {
+  50% {
+    transform: translate(-50%, -50%) scale(1, .025);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.rules h2 {
+  text-transform: uppercase;
+  font-size: 30px;
+  color: hsl(229, 25%, 31%);
+}
+
+@media (max-width: 768px) {
+  .rules {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+.rules img:nth-of-type(1) {
+  width: 85%;
+}
+
+.rules img:last-child {
+  cursor: pointer;
+}
+
+.win {
+  margin: auto;
+  margin-top: 50px;
+  width: 300px;
+  border-radius: 15px;
+  padding: 0 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.winb {
+  display: none;
+}
+
+.winner {
+  text-align: center;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.win div:first-child {
+  left: 0;
+}
+
+.win div:last-child {
+  right: 0;
+}
+
+.win .active {
+  box-shadow: 0 0 0 15px hsl(229, 25%, 31%),
+    0 0 0 30px hsla(229, 25%, 31%, .5),
+    0 0 0 40px hsla(229, 25%, 31%, .4);
+}
+
+.win>div {
+  height: 90px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.winner {
+  color: #fff;
+  width: fit-content;
+  margin: 30px auto;
+}
+
+.winner h2 {
+  font-size: 45px;
+}
+
+.reset {
+  background: #fff;
+  padding: 10px 40px;
+  color: hsl(229, 25%, 31%);
+  border-radius: 6px;
+  margin-top: 40px;
+  font-size: 30px;
+  font-weight: bold;
+  border: none;
+}
