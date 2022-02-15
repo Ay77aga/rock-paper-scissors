@@ -21,7 +21,7 @@ const reset = document.querySelector('.reset');
 let myPick = '';
 let myPickAlt = '';
 let winner = '';
-if (window.localStorage.score){
+if (window.localStorage.score) {
   score.textContent = localStorage.score;
 }
 picks.forEach((pick) => {
@@ -33,6 +33,7 @@ picks.forEach((pick) => {
     winRules(winBord[0], winBord[1]);
     if (winner == 'w') {
       window.localStorage.score = score.textContent;
+      score.textContent++;
       w.textContent = 'YOU WIN';
     }
     else if (winner == 'l') {
@@ -72,15 +73,12 @@ function comPick() {
 function winRules(p1, p2) {
   // p1
   if (p1.classList.contains('paper') && p2.classList.contains('rock')) {
-    score.textContent++;
     winner = 'w';
   }
   else if (p1.classList.contains('rock') && p2.classList.contains('scissors')) {
-    score.textContent++;
     winner = 'w';
   }
   else if (p1.classList.contains('scissors') && p2.classList.contains('paper')) {
-    score.textContent++;
     winner = 'w';
   }
   // p2
@@ -104,7 +102,6 @@ function play_agin() {
     myPick = '';
     myPickAlt = '';
     winner = '';
-
     game.style.display = 'block';
     win_container.style.display = 'none';
   })
