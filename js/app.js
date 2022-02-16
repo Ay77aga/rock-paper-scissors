@@ -32,12 +32,14 @@ picks.forEach((pick) => {
     comPick();
     winRules(winBord[0], winBord[1]);
     if (winner == 'w') {
-      window.localStorage.score = score.textContent;
       score.textContent++;
+      window.localStorage.score = score.textContent;
       w.textContent = 'YOU WIN';
+      winBord[0].classList.add('active');
     }
     else if (winner == 'l') {
       w.textContent = 'YOU LOSE';
+      winBord[1].classList.add('active');
     }
     else {
       w.textContent = 'DRAW';
@@ -45,6 +47,10 @@ picks.forEach((pick) => {
     play_agin();
   });
 });
+score.onclick = function() {
+  this.textContent = 0;
+  window.localStorage.score = 0;
+};
 
 function mPick() {
   console.log(myPickAlt)

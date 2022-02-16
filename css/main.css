@@ -224,9 +224,16 @@ body {
 }
 
 .win .active {
-  box-shadow: 0 0 0 15px hsl(229, 25%, 31%),
-    0 0 0 30px hsla(229, 25%, 31%, .5),
-    0 0 0 40px hsla(229, 25%, 31%, .4);
+  animation: win 1.5s linear both;
+}
+
+@keyframes win {
+  100% {
+    box-shadow: 0 0 0 15px hsl(229, 25%, 31%),
+      0 0 0 30px hsla(229, 25%, 31%, .7),
+      0 0 0 45px hsla(229, 25%, 31%, .5);
+
+  }
 }
 
 .win>div {
@@ -259,6 +266,7 @@ body {
   font-weight: bold;
   border: none;
 }
+
 @media (min-width: 768px) {
   .rules {
     width: 400px;
@@ -266,15 +274,17 @@ body {
   }
 
   .game,
-  .win{
+  .win {
     margin-top: 100px;
     transform: scale(1.2)
   }
-  .ru{
+
+  .ru {
     margin-top: 100px;
     left: 80%;
   }
-  .title{
+
+  .title {
     width: 400px;
   }
 }
