@@ -21,6 +21,7 @@ const reset = document.querySelector('.reset');
 let myPick = '';
 let myPickAlt = '';
 let winner = '';
+
 if (window.localStorage.score) {
   score.textContent = localStorage.score;
 }
@@ -59,7 +60,6 @@ function mPick() {
   winBord[0].children[0].src = myPick;
   winBord[0].classList.add(myPickAlt);
 }
-let rr = '';
 
 function comPick() {
   let imgs = [],
@@ -71,34 +71,25 @@ function comPick() {
     }
     imgs.push(obj);
   });
-  rr = r;
-  winBord[1].children[0].src = imgs[rr].src;
-  winBord[1].classList.add(imgs[rr].alt);
+
+  winBord[1].children[0].src = imgs[r].src;
+  winBord[1].classList.add(imgs[r].alt);
 }
 
 function winRules(p1, p2) {
   // p1
-  if (p1.classList.contains('paper') && p2.classList.contains('rock')) {
+  if ((p1.classList.contains('paper') && p2.classList.contains('rock')) ||
+    (p1.classList.contains('rock') && p2.classList.contains('scissors')) ||
+    (p1.classList.contains('scissors') && p2.classList.contains('paper')))
     winner = 'w';
-  }
-  else if (p1.classList.contains('rock') && p2.classList.contains('scissors')) {
-    winner = 'w';
-  }
-  else if (p1.classList.contains('scissors') && p2.classList.contains('paper')) {
-    winner = 'w';
-  }
+
   // p2
-  else if (p2.classList.contains('paper') && p1.classList.contains('rock')) {
+  else if ((p2.classList.contains('paper') && p1.classList.contains('rock')) ||
+    (p2.classList.contains('rock') && p1.classList.contains('scissors')) ||
+    (p2.classList.contains('scissors') && p1.classList.contains('paper')))
     winner = 'l';
-  }
-  else if (p2.classList.contains('rock') && p1.classList.contains('scissors')) {
-    winner = 'l';
-  }
-  else if (p2.classList.contains('scissors') && p1.classList.contains('paper')) {
-    winner = 'l';
-  } else {
-    winner = 'd';
-  }
+
+  else winner = 'd';
 }
 
 function play_agin() {
@@ -110,5 +101,5 @@ function play_agin() {
     winner = '';
     game.style.display = 'block';
     win_container.style.display = 'none';
-  })
+  });
 }
